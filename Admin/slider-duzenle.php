@@ -75,6 +75,9 @@ $slidercek=$slider->fetch(PDO::FETCH_ASSOC);
                   </select>
                 </div>
 
+                <input type="hidden" name="id" value="<?php echo $slidercek['slider_id'] ?>"> 
+                <input type="hidden" name="eskiresim" value="<?php echo $slidercek['slider_resim'] ?>"> 
+
                 <div class="form-group">
                   <label>Slider Banner</label>
                   <select name="sliderbanner" class="form-control select2" style="width: 100%;">
@@ -90,7 +93,7 @@ $slidercek=$slider->fetch(PDO::FETCH_ASSOC);
                 
 
                 <div class="card-footer">
-                  <button name="sliderkaydet" type="submit" class="btn btn-primary">Gönder</button>
+                  <button name="sliderduzenle" type="submit" class="btn btn-primary">Gönder</button>
                 </div>
               </form>
             </div>

@@ -90,7 +90,12 @@ require_once 'sidebar.php' ?>
                       </span></td>
                       
                       <td><a href="slider-duzenle?id=<?php echo $slidercek['slider_id'] ?>"><button type="submit" class="btn btn-info">Düzenle</button></a></td>
-                      <td><a href="islem/islem.php?slidersil&id=<?php echo $slidercek['slider_id'] ?>"><button type="submit" class="btn btn-danger">Sil</button></a></td>
+                      <form action="islem/islem.php" method="POST">
+                        <input type="hidden" name="id" value="<?php echo $slidercek['slider_id'] ?>">
+                        <input type="hidden" name="resim" value="<?php echo $slidercek['slider_resim'] ?>">
+                      <td><button name="slidersil" type="submit" class="btn btn-danger">Sil</button></td>
+
+                    </form>
                     </tr>
 
                   <?php } ?>

@@ -2,6 +2,10 @@
 session_start();
 require_once 'baglanti.php';
 
+
+
+
+
 if (isset($_POST['ayarkaydet'])) {
 	
 	$duzenle = $baglanti->prepare("UPDATE ayarlar SET
@@ -33,6 +37,10 @@ if (isset($_POST['ayarkaydet'])) {
 
 
 }
+
+
+
+
 
 if (isset($_POST['iletisimkaydet'])) {
 	
@@ -66,6 +74,11 @@ if (isset($_POST['iletisimkaydet'])) {
 
 }
 
+
+
+
+
+
 if (isset($_POST['sosyalmedyakaydet'])) {
 	
 	$duzenle = $baglanti->prepare("UPDATE ayarlar SET
@@ -97,6 +110,11 @@ if (isset($_POST['sosyalmedyakaydet'])) {
 
 
 }
+
+
+
+
+
 
 if (isset($_POST['logokaydet'])) {
 
@@ -141,6 +159,12 @@ $duzenle = $baglanti->prepare("UPDATE ayarlar SET
 
 
 }
+
+
+
+
+
+
 
 if (isset($_POST['hakkimizdakaydet'])) {
 
@@ -227,6 +251,12 @@ if ($update) {
 
 }
 
+
+
+
+
+
+
 if (isset($_POST['girisyap'])) {
 
 $kadi=htmlspecialchars($_POST['kadi']);
@@ -254,6 +284,14 @@ else
 }
 
 }
+
+
+
+
+
+
+
+
 
 
 if (isset($_POST['uyelerkaydet'])) {
@@ -330,6 +368,10 @@ else
 
 }
 
+
+
+
+
 if (isset($_GET['kullanicisil'])) {
 
 $kullanicisil=$baglanti->prepare("DELETE FROM kullanici where kullanici_id=:kullanici_id ");
@@ -348,6 +390,12 @@ $kullanicisil=$baglanti->prepare("DELETE FROM kullanici where kullanici_id=:kull
 	}
 	
 }
+
+
+
+
+
+
 
 if (isset($_POST['kategorikaydet'])) {
 
@@ -376,6 +424,11 @@ if (isset($_POST['kategorikaydet'])) {
 		header("Location:../kategori?yuklenme=basarisiz");
 	}
 }
+
+
+
+
+
 
 if (isset($_POST['kategoriduzenle'])) {
 
@@ -409,6 +462,12 @@ $kat=$_POST['katid'];
 	}
 }
 
+
+
+
+
+
+
 if (isset($_GET['kategorisil'])) {
 
 $kategorisil=$baglanti->prepare("DELETE FROM kategori where kategori_id=:kategori_id ");
@@ -427,6 +486,8 @@ $kategorisil=$baglanti->prepare("DELETE FROM kategori where kategori_id=:kategor
 	}
 	
 }
+
+
 
 
 
@@ -493,56 +554,146 @@ if (isset($_POST['sliderkaydet'])) {
 	}
 }
 
-if (isset($_POST['kategoriduzenle'])) {
-
-$kat=$_POST['katid'];
-
-	$duzenle = $baglanti->prepare("UPDATE kategori SET
 
 
 
-		kategori_adi=:kategori_adi,
-		kategori_sira=:kategori_sira,
-		kategori_durum=:kategori_durum
 
-	WHERE kategori_id=$kat
+
+
+
+if (isset($_POST['sliderduzenle'])) {
+
+
+
+$slideid=$_POST['id'];
+
+	
+	if ($_FILES['sliderresim'] ["size"]>0) {
+	$uploads_dir='../resimler/slider';
+	@$tmp_name=$_FILES['sliderresim'] ["tmp_name"];
+	@$name=$_FILES['sliderresim']["name"];
+
+	$sayi=rand(1,10000000);
+	$sayi2=rand(1,1000000);
+	$sayi3=rand(10000,20000000);
+
+	$sayilar=$sayi.$sayi2.$sayi3;
+	$resimyolu=$sayilar.$name;
+
+	@move_uploaded_file($tmp_name, "$uploads_dir/$sayilar$name");
+
+	$duzenle = $baglanti->prepare("UPDATE slider SET
+
+
+
+		slider_baslik=:slider_baslik,
+		slider_aciklama=:slider_aciklama,
+		slider_sira=:slider_sira,
+		slider_link=:slider_link,
+		slider_button=:slider_button,
+		slider_durum=:slider_durum,
+		slider_banner=:slider_banner,
+		slider_resim=:slider_resim
+
+	WHERE slider_id=$slideid
 
 		");
 
 	$update = $duzenle->execute(array(
 
-	'kategori_adi'=>$_POST['katadi'],
-	'kategori_sira'=>$_POST['sira'],
-	'kategori_durum'=>$_POST['kategoridurum']
+	'slider_baslik'=>$_POST['sliderbasik'],
+	'slider_aciklama'=>$_POST['slideraciklama'],
+	'slider_sira'=>$_POST['slidersira'],
+	'slider_link'=>$_POST['sliderlink'],
+	'slider_button'=>$_POST['sliderbutton'],
+	'slider_durum'=>$_POST['sliderdurum'],
+	'slider_banner'=>$_POST['sliderbanner'],
+	'slider_resim'=>$resimyolu
 
 	));
 
 	if ($update) {
-	header("Location:../kategori.php?yuklenme=basarili");
+
+	$resimsil=$_POST['eskiresim'];
+	unlink("../resimler/slider/$resimsil");
+		
+	header("Location:../slider.php?yuklenme=basarili");
 	}
 	else{
-	header("Location:../kategori.php?yuklenme=basarisiz");
+	header("Location:../slider.php?yuklenme=basarisiz");
+	}
+}
+else{
+	$duzenle = $baglanti->prepare("UPDATE slider SET
+
+
+
+		slider_baslik=:slider_baslik,
+		slider_aciklama=:slider_aciklama,
+		slider_sira=:slider_sira,
+		slider_link=:slider_link,
+		slider_button=:slider_button,
+		slider_durum=:slider_durum,
+		slider_banner=:slider_banner
+
+	WHERE slider_id=$slideid
+
+		");
+
+	$update = $duzenle->execute(array(
+
+	'slider_baslik'=>$_POST['sliderbasik'],
+	'slider_aciklama'=>$_POST['slideraciklama'],
+	'slider_sira'=>$_POST['slidersira'],
+	'slider_link'=>$_POST['sliderlink'],
+	'slider_button'=>$_POST['sliderbutton'],
+	'slider_durum'=>$_POST['sliderdurum'],
+	'slider_banner'=>$_POST['sliderbanner']
+
+	));
+
+	if ($update) {
+
+	header("Location:../slider.php?yuklenme=basarili");
+	}
+	else{
+	header("Location:../slider.php?yuklenme=basarisiz");
 	}
 }
 
-if (isset($_GET['kategorisil'])) {
+}
 
-$kategorisil=$baglanti->prepare("DELETE FROM kategori where kategori_id=:kategori_id ");
 
-		$kategorisil->execute(array(
-			'kategori_id'=>$_GET['id']
+if (isset($_POST['slidersil'])) {
+
+$slidersil=$baglanti->prepare("DELETE FROM slider where slider_id=:slider_id ");
+
+		$slidersil->execute(array(
+			'slider_id'=>$_POST['id']
 
 		));
 
-	if ($kategorisil) {
-		header("Location:../kategori?yuklenme=basarili");
+	if ($slidersil) {
+
+		$resimsil=$_POST['resim'];
+		unlink("../resimler/slider/$resimsil");
+
+		header("Location:../slider?yuklenme=basarili");
 	}
 	else{
-		header("Location:../kategori?yuklenme=hata");
+		header("Location:../slider?yuklenme=hata");
 
 	}
 	
 }
+
+
+
+
+
+
+
+
 
 
  ?>
