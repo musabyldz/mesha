@@ -264,10 +264,11 @@ $sifre=htmlspecialchars($_POST['sifre']);
 $sifreguclu=md5($sifre);
 
 
-$kullanicisor=$baglanti->prepare("SELECT * from kullanici where kullanici_adi=:kullanici_adi and kullanici_sifre=:kullanici_sifre");
+$kullanicisor=$baglanti->prepare("SELECT * from kullanici where kullanici_adi=:kullanici_adi and kullanici_sifre=:kullanici_sifre and kullanici_yetki=:kullanici_yetki");
 $kullanicisor->execute(array(
 'kullanici_adi'=>$kadi,
-'kullanici_sifre'=>$sifreguclu
+'kullanici_sifre'=>$sifreguclu,
+'kullanici_yetki'=>2
 
 
 ));
@@ -301,9 +302,10 @@ $sifre=htmlspecialchars($_POST['sifre']);
 $adsoyad=htmlspecialchars($_POST['adsoyad']);
 $sifreguclu=md5($sifre);
 
-$kullanicisor=$baglanti->prepare("SELECT * from kullanici where kullanici_adi=:kullanici_adi");
+$kullanicisor=$baglanti->prepare("SELECT * from kullanici where kullanici_adi=:kullanici_adi and kullanici_yetki=:kullanici_yetki");
 $kullanicisor->execute(array(
-'kullanici_adi'=>$kadi
+'kullanici_adi'=>$kadi,
+'kullanici_yetki'=>2
 
 
 ));
