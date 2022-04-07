@@ -23,7 +23,7 @@ require_once 'sidebar.php' ?>
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Kategori Tablosu</h3>
+                <h3 class="card-title">Ürünler Tablosu</h3>
 
                 <div class="card-tools">
                   <div class="input-group input-group-sm" style="width: 150px;">
@@ -38,48 +38,43 @@ require_once 'sidebar.php' ?>
               <!-- /.card-header -->
               <div class="card-body table-responsive p-0">
                 <table class="table table-hover text-nowrap">
-                  <a href="kategori-ekle"><button style="float: right;" type="submit" class="btn btn-success">Yeni Kategori Ekle</button></a>
+                  <a href="urunler-ekle?katid=<?php echo $_GET['katid'] ?>"><button style="float: right;" type="submit" class="btn btn-success">Yeni Ürün Ekle</button></a>
                   <thead>
                     <tr>
-                      <th>Kategori Numara</th>
-                      <th>Kategori Adı</th>
-                      <th>Kategori Sıra</th>
-                      <th>Kategori Durum</th>
+                      <th>Ürün Resim</th>
+                      <th>Ürün Başlık</th>
+                      <th>Ürün Model</th>
+                      <th>Ürün Renk</th>
+                      <th>Ürün Durum</th>
+                      <th>Ürün Sıra</th>
+                      <th>Ürün Adet Sayısı</th>
                       <th>Düzenle</th>
                       <th>Sil</th>
-                      <th>Ürünlere Git</th>
                     </tr>
                   </thead>
                   <tbody>
 
                     <?php 
-                      $kategori=$baglanti->prepare("SELECT * FROM kategori order by kategori_id ASC");
-                      $kategori->execute();
-                      while ($kategoricek=$kategori->fetch(PDO::FETCH_ASSOC)) { ?>
+                      $urunler=$baglanti->prepare("SELECT * FROM urunler order by urun_id ASC");
+                      $urunler->execute();
+                      while ($urunlercek=$urunler->fetch(PDO::FETCH_ASSOC)) { ?>
 
                     <tr>
-                      <td><?php echo $kategoricek['kategori_id'] ?></td>
-                      <td><?php echo $kategoricek['kategori_adi'] ?></td>
-                      <td><?php echo $kategoricek['kategori_sira'] ?></td>
-                      <td><span class="tag tag-danger">
-                        <?php 
-                          if ($kategoricek['kategori_durum']=="1") {
-                            echo "Aktif";
-                          }
-                          elseif ($kategoricek['kategori_durum']=="0") {
-                            echo "Pasif";
-                          }
+                      <td><img style="width: 350px" src="resimler/urunler/<?php echo $urunlercek['urun_resim'] ?>"></td>
+                      <td><?php echo $urunlercek['urun_baslik'] ?></td>
+                      <td><?php echo $urunlercek['urun_model'] ?></td>
+                      <td><?php echo $urunlercek['urun_renk'] ?></td>
+                      <td><?php echo $urunlercek['urun_durum'] ?></td>
+                      <td><?php echo $urunlercek['urun_sira'] ?></td>
+                      <td><?php echo $urunlercek['urun_adet'] ?></td>
 
+                      <td><a href="urunler-duzenle?id=<?php echo $urunlercek['urunler_id'] ?>"><button type="submit" class="btn btn-info">Düzenle</button></a></td>
+                      <form action="islem/islem.php" method="POST">
+                        <input type="hidden" name="id" value="<?php echo $urunlercek['urunler_id'] ?>">
+                        <input type="hidden" name="resim" value="<?php echo $urunlercek['urunler_resim'] ?>">
+                      <td><button name="urunlersil" type="submit" class="btn btn-danger">Sil</button></td>
 
-                         ?>
-                        
-
-
-
-                      </span></td>
-                      <td><a href="kategori-duzenle?id=<?php echo $kategoricek['kategori_id'] ?>"><button type="submit" class="btn btn-info">Düzenle</button></a></td>
-                      <td><a href="islem/islem.php?kategorisil&id=<?php echo $kategoricek['kategori_id'] ?>"><button type="submit" class="btn btn-danger">Sil</button></a></td>
-                      <td><a href="urunler?katid=<?php echo $kategoricek['kategori_id'] ?>"><button type="submit" class="btn btn-success">Git</button></a></td>
+                    </form>
                     </tr>
 
                   <?php } ?>

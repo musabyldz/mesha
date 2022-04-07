@@ -1,6 +1,5 @@
 <?php   
 require_once 'header.php';
-
 ?>
 
             <!-- Begin Login Content Area -->
@@ -13,7 +12,7 @@ require_once 'header.php';
                                 <div class="login-form">
                                     <h4 class="login-title">Giriş Yap 
                                         
-                                            <?php if ($_GET['durum']=="hata") { ?>
+                                            <?php if (@$_GET['durum']=="hata") { ?>
                                             <i style="color:red;"> Kullanıcı Adı veya Şifre Hatalı </i>
                                             <?php } ?>
                                             
@@ -50,13 +49,13 @@ require_once 'header.php';
 
 
                                       
-                                     <?php  if ($_GET['durum']=="kullanicivar") { ?>
+                                     <?php  if (@$_GET['durum']=="kullanicivar") { ?>
                                             <i style="color:red;">Bu Kullanıcı Sistemde Kayıtlı</i>
-                                     <?php  } elseif ($_GET['durum']=="sifrehata")   { ?> 
+                                     <?php  } elseif (@$_GET['durum']=="sifrehata")   { ?> 
                                             <i style="color:red;">Şifreniz Uyuşmuyor Lütfen İki Şifreyi de Aynı Giriniz</i>
-                                     <?php  }  elseif ($_GET['durum']=="sifreeksik") { ?>
+                                     <?php  }  elseif (@$_GET['durum']=="sifreeksik") { ?>
                                             <i style="color:red;">Lütfen Minimum 8 Karakter Olacak Şekilde Şifre Giriniz</i>
-                                     <?php  }  elseif ($_GET['durum']=="basarisiz") { ?>
+                                     <?php  }  elseif (@$_GET['durum']=="basarisiz") { ?>
                                             <i style="color:red;">İşlem Başarısız</i>
                                      <?php } ?>
 
