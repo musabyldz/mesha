@@ -1,24 +1,50 @@
-<?php 
+<?php
+error_reporting(0);
+session_start();
+ob_start();
 require_once 'Admin/islem/baglanti.php';
-
-$ayar=$baglanti->prepare("SELECT * FROM ayarlar where id=?");
+require_once 'function.php';
+$ayar=$baglanti->prepare("SELECT * FROM  ayarlar where id=?");
 $ayar->execute(array(1));
 $ayarcek=$ayar->fetch(PDO::FETCH_ASSOC);
 
-$hakkimizda=$baglanti->prepare("SELECT * FROM hakkimizda where hakkimizda_id=?");
+ 
+$hakkimizda=$baglanti->prepare("SELECT * FROM  hakkimizda where hakkimizda_id=?");
 $hakkimizda->execute(array(1));
 $hakkimizdacek=$hakkimizda->fetch(PDO::FETCH_ASSOC);
 
-?>
+
+ $kullanicisor=$baglanti->prepare("SELECT * from kullanici where kullanici_adi=:kullanici_adi  ");
+ $kullanicisor->execute(array(
+'kullanici_adi'=>$_SESSION['normalgiris']
+ ));
+$kullanicicek=$kullanicisor->fetch(PDO::FETCH_ASSOC);
+$var=$kullanicisor->rowCount();
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+ ?>
 
 <!doctype html>
 <html class="no-js" lang="zxx">
     
-<!-- index28:48-->
+<!-- index28:48--> 
 <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Mesha E-Ticaret Sitesi</title>
+        <title>Mesha E-Ticaret</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Favicon -->
@@ -57,9 +83,11 @@ $hakkimizdacek=$hakkimizda->fetch(PDO::FETCH_ASSOC);
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     </head>
     <body>
+  
         <div class="body-wrapper">
             <!-- Begin Header Area -->
             <header>
+                
                 <div class="header-middle pl-sm-0 pr-sm-0 pl-xs-0 pr-xs-0">
                     <div class="container">
                         <div class="row">
@@ -77,7 +105,7 @@ $hakkimizdacek=$hakkimizda->fetch(PDO::FETCH_ASSOC);
                                 <!-- Begin Header Middle Searchbox Area -->
                                 <form action="#" class="hm-searchbox">
                                     <select class="nice-select select-search-category">
-
+                                       
                                         <option value="13">Cameras</option>                          
                                         <option value="14">headphone</option>                                
                                         <option value="15">Smartwatch</option>                           
@@ -92,10 +120,12 @@ $hakkimizdacek=$hakkimizda->fetch(PDO::FETCH_ASSOC);
                                     <ul class="hm-menu">
                                         <!-- Begin Header Middle Wishlist Area -->
                                         <li class="hm-wishlist">
-                                            <a href="wishlist.html">
-                                                <span class="cart-item-count wishlist-item-count">0</span>
-                                                <i class="fa fa-heart-o"></i>
+                                            <a href="kullanici">
+                                               
+                                                <i class="fa fa-user-o"></i>
+
                                             </a>
+                                            Hesabım
                                         </li>
                                         <!-- Header Middle Wishlist Area End Here -->
                                         <!-- Begin Header Mini Cart Area -->
@@ -164,45 +194,60 @@ $hakkimizdacek=$hakkimizda->fetch(PDO::FETCH_ASSOC);
                                 <div class="hb-menu">
                                     <nav>
                                         <ul>
-                                           <li><a href="index.php">Anasayfa</a></li>
+                                         <li><a href="index.php">Anasayfa</a></li>
                                             <li class="megamenu-holder"><a href="shop-left-sidebar.html">Kategorİler</a>
                                                 <ul class="megamenu hb-megamenu">
                                                     <li>
                                                         <ul>
-                                                            <?php 
-                                                                $kategori=$baglanti->prepare("SELECT * FROM kategori where kategori_sira between 1 and 10 limit 8");
-                                                                $kategori->execute();
+                                                             <?php  
+                                                                $kategori=$baglanti->prepare("SELECT * FROM  kategori  where kategori_durum=:kategori_durum and  kategori_sira  between 1 and 10                                            limit 8 ");
+                                                                $kategori->execute(array(
+                                                
+                                                                 'kategori_durum'=>1
+
+                                                                ));
                                                                 while ($kategoricek=$kategori->fetch(PDO::FETCH_ASSOC)) { ?>
-                                                            <li><a href="shop-list-right-sidebar.html"><?php echo $kategoricek['kategori_adi'] ?></a></li>
-                                                         <?php } ?>
+                                                            <li><a href="urunler-<?=seolink($kategoricek['kategori_adi']).'-'.$kategoricek['kategori_id'] ?>"><?php echo  $kategoricek['kategori_adi'] ?></a></li>
+                                                        <?php } ?>
                                                         </ul>
                                                     </li>
                                                     <li>
                                                         <ul>
-                                                            <?php 
-                                                                $kategori=$baglanti->prepare("SELECT * FROM kategori where kategori_sira between 10 and 20 limit 8");
-                                                                $kategori->execute();
+                                                               <?php  
+                                                                $kategori=$baglanti->prepare("SELECT * FROM  kategori   where  kategori_durum=:kategori_durum and kategori_sira  between 10 and 20                                              limit 8 ");
+                                                                $kategori->execute(array(
+
+                                                                'kategori_durum'=>1
+
+                                                                ));
                                                                 while ($kategoricek=$kategori->fetch(PDO::FETCH_ASSOC)) { ?>
-                                                            <li><a href="shop-list-right-sidebar.html"><?php echo $kategoricek['kategori_adi'] ?></a></li>
-                                                         <?php } ?>
-                                                            
+                                                            <li><a href="urunler-<?=seolink($kategoricek['kategori_adi']).'-'.$kategoricek['kategori_id'] ?>"><?php echo  $kategoricek['kategori_adi'] ?></a></li>
+                                                        <?php } ?>
+
                                                         </ul>
                                                     </li>
                                                     <li>
                                                         <ul>
-                                                            <?php 
-                                                                $kategori=$baglanti->prepare("SELECT * FROM kategori where kategori_sira between 20 and 30 limit 8");
-                                                                $kategori->execute();
+                                                               <?php  
+                                                                $kategori=$baglanti->prepare("SELECT * FROM  kategori  where  kategori_durum=:kategori_durum and  kategori_sira  between 20 and 30                                              limit 8 ");
+                                                                 $kategori->execute(array(
+
+                                                                 'kategori_durum'=>1
+
+                                                                ));
                                                                 while ($kategoricek=$kategori->fetch(PDO::FETCH_ASSOC)) { ?>
-                                                            <li><a href="shop-list-right-sidebar.html"><?php echo $kategoricek['kategori_adi'] ?></a></li>
-                                                         <?php } ?>
+                                                            <li><a href="urunler-<?=seolink($kategoricek['kategori_adi']).'-'.$kategoricek['kategori_id'] ?>"><?php echo  $kategoricek['kategori_adi'] ?></a></li>
+                                                        <?php } ?>
                                                         </ul>
                                                     </li>
                                                 </ul>
                                             </li>
+                                            
+                                            
                                             <li><a href="about-us.html">Hakkımızda</a></li>
                                             <li><a href="contact.html">Kargo BİLGİLERİ</a></li>
                                             <li><a href="shop-left-sidebar.html">İLETİŞİM</a></li>
+                                       
                                         </ul>
                                     </nav>
                                 </div>

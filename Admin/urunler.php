@@ -55,12 +55,19 @@ require_once 'sidebar.php' ?>
                   <tbody>
 
                     <?php 
-                      $urunler=$baglanti->prepare("SELECT * FROM urunler order by urun_id ASC");
-                      $urunler->execute();
+                      $urunler=$baglanti->prepare("SELECT * FROM urunler where kategori_id=:kategori_id order by urun_id ASC");
+                      $urunler->execute(array(
+
+                        'kategori_id'=>$_GET['katid']
+
+
+
+
+                      ));
                       while ($urunlercek=$urunler->fetch(PDO::FETCH_ASSOC)) { ?>
 
                     <tr>
-                      <td><img style="width: 350px" src="resimler/urunler/<?php echo $urunlercek['urun_resim'] ?>"></td>
+                      <td><img style="width: 250px" src="resimler/urunler/<?php echo $urunlercek['urun_resim'] ?>"></td>
                       <td><?php echo $urunlercek['urun_baslik'] ?></td>
                       <td><?php echo $urunlercek['urun_model'] ?></td>
                       <td><?php echo $urunlercek['urun_renk'] ?></td>
@@ -68,10 +75,11 @@ require_once 'sidebar.php' ?>
                       <td><?php echo $urunlercek['urun_sira'] ?></td>
                       <td><?php echo $urunlercek['urun_adet'] ?></td>
 
-                      <td><a href="urunler-duzenle?id=<?php echo $urunlercek['urunler_id'] ?>"><button type="submit" class="btn btn-info">Düzenle</button></a></td>
+                      <td><a href="urunler-duzenle?id=<?php echo $urunlercek['urun_id'] ?>&katid=<?php echo $urunlercek['kategori_id'] ?>"><button type="submit" class="btn btn-info">Düzenle</button></a></td>
                       <form action="islem/islem.php" method="POST">
-                        <input type="hidden" name="id" value="<?php echo $urunlercek['urunler_id'] ?>">
-                        <input type="hidden" name="resim" value="<?php echo $urunlercek['urunler_resim'] ?>">
+                        <input type="hidden" name="id" value="<?php echo $urunlercek['urun_id'] ?>">
+                        <input type="hidden" name="resim" value="<?php echo $urunlercek['urun_resim'] ?>">
+                        <input type="hidden" name="katsid" value="<?php echo $_GET['katid'] ?>">
                       <td><button name="urunlersil" type="submit" class="btn btn-danger">Sil</button></td>
 
                     </form>
