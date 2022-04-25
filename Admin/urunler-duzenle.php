@@ -75,6 +75,7 @@ $urunlercek=$urunler->fetch(PDO::FETCH_ASSOC);
                     <label for="exampleInputEmail1">Ürün Resim</label>
                     <input  name="urunlerresim" type="file" class="form-control">
                   </div>
+                  
                   <div class="form-group">
                     <label for="exampleInputEmail1">Ürün Başlık</label>
                     <input value="<?php echo $urunlercek['urun_baslik'] ?>" name="urunlerbasik" type="text" class="form-control" placeholder="Lütfen Ürün Başlık giriniz.">

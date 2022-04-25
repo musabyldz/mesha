@@ -197,6 +197,8 @@ $var=$kullanicisor->rowCount();
                                          <li><a href="index.php">Anasayfa</a></li>
                                             <li class="megamenu-holder"><a href="shop-left-sidebar.html">Kategorİler</a>
                                                 <ul class="megamenu hb-megamenu">
+
+
                                                     <li>
                                                         <ul>
                                                              <?php  
@@ -207,10 +209,11 @@ $var=$kullanicisor->rowCount();
 
                                                                 ));
                                                                 while ($kategoricek=$kategori->fetch(PDO::FETCH_ASSOC)) { ?>
-                                                            <li><a href="urunler-<?=seolink($kategoricek['kategori_adi']).'-'.$kategoricek['kategori_id'] ?>"><?php echo  $kategoricek['kategori_adi'] ?></a></li>
+                                                            <li><a href="urunler-<?=seolink($kategoricek['kategori_adi']).'-'.$kategoricek['kategori_id']?>"><?php echo  $kategoricek['kategori_adi']?></a></li>
                                                         <?php } ?>
                                                         </ul>
                                                     </li>
+
                                                     <li>
                                                         <ul>
                                                                <?php  
@@ -219,9 +222,10 @@ $var=$kullanicisor->rowCount();
 
                                                                 'kategori_durum'=>1
 
+
                                                                 ));
                                                                 while ($kategoricek=$kategori->fetch(PDO::FETCH_ASSOC)) { ?>
-                                                            <li><a href="urunler-<?=seolink($kategoricek['kategori_adi']).'-'.$kategoricek['kategori_id'] ?>"><?php echo  $kategoricek['kategori_adi'] ?></a></li>
+                                                            <li><a href="urunler-<?=seolink($kategoricek['kategori_adi']).'-'.$kategoricek['kategori_id']?>"><?php echo  $kategoricek['kategori_adi'] ?></a></li>
                                                         <?php } ?>
 
                                                         </ul>
@@ -229,14 +233,15 @@ $var=$kullanicisor->rowCount();
                                                     <li>
                                                         <ul>
                                                                <?php  
-                                                                $kategori=$baglanti->prepare("SELECT * FROM  kategori  where  kategori_durum=:kategori_durum and  kategori_sira  between 20 and 30                                              limit 8 ");
+                                                                $kategori=$baglanti->prepare("SELECT * FROM  kategori  where  kategori_durum=:kategori_durum  and kategori_sira  between 20 and 30                                              limit 8 ");
                                                                  $kategori->execute(array(
 
                                                                  'kategori_durum'=>1
 
+
                                                                 ));
                                                                 while ($kategoricek=$kategori->fetch(PDO::FETCH_ASSOC)) { ?>
-                                                            <li><a href="urunler-<?=seolink($kategoricek['kategori_adi']).'-'.$kategoricek['kategori_id'] ?>"><?php echo  $kategoricek['kategori_adi'] ?></a></li>
+                                                            <li><a href="urunler-<?=seolink($kategoricek['kategori_adi']).'-'.$kategoricek['kategori_id']?>"><?php echo  $kategoricek['kategori_adi']?></a></li>
                                                         <?php } ?>
                                                         </ul>
                                                     </li>

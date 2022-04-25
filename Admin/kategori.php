@@ -42,6 +42,7 @@ require_once 'sidebar.php' ?>
                   <thead>
                     <tr>
                       <th>Kategori Numara</th>
+                      <!--<th>Kategori Resim</th> -->
                       <th>Kategori Adı</th>
                       <th>Kategori Sıra</th>
                       <th>Kategori Durum</th>
@@ -53,12 +54,14 @@ require_once 'sidebar.php' ?>
                   <tbody>
 
                     <?php 
-                      $kategori=$baglanti->prepare("SELECT * FROM kategori order by kategori_id ASC");
+                      $kategori=$baglanti->prepare("SELECT * FROM kategori order by kategori_sira ASC");
                       $kategori->execute();
                       while ($kategoricek=$kategori->fetch(PDO::FETCH_ASSOC)) { ?>
 
                     <tr>
                       <td><?php echo $kategoricek['kategori_id'] ?></td>
+                    <!--  <td><img style="width: 200px" src="resimler/kategori/<?php echo $kategoricek['kategori_resim'] ?>"></td> -->
+
                       <td><?php echo $kategoricek['kategori_adi'] ?></td>
                       <td><?php echo $kategoricek['kategori_sira'] ?></td>
                       <td><span class="tag tag-danger">
@@ -79,7 +82,13 @@ require_once 'sidebar.php' ?>
                       </span></td>
                       <td><a href="kategori-duzenle?id=<?php echo $kategoricek['kategori_id'] ?>"><button type="submit" class="btn btn-info">Düzenle</button></a></td>
                       <td><a href="islem/islem.php?kategorisil&id=<?php echo $kategoricek['kategori_id'] ?>"><button type="submit" class="btn btn-danger">Sil</button></a></td>
+                      <form action="islem/islem.php" method="POST">
+                       <!-- <input type="hidden" name="resim" value="<?php echo $kategoricek['kategori_resim'] ?>"> -->
+                        <input type="hidden" name="id" value="<?php echo $kategoricek['kategori_id'] ?>">
+                      </form>
                       <td><a href="urunler?katid=<?php echo $kategoricek['kategori_id'] ?>"><button type="submit" class="btn btn-success">Git</button></a></td>
+                      
+                      
                     </tr>
 
                   <?php } ?>

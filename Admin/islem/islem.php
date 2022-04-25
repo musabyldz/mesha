@@ -401,10 +401,25 @@ $kullanicisil=$baglanti->prepare("DELETE FROM kullanici where kullanici_id=:kull
 
 if (isset($_POST['kategorikaydet'])) {
 
+/*	$uploads_dir='../resimler/kategori';
+	@$tmp_name=$_FILES['kategoriresim'] ["tmp_name"];
+	@$name=$_FILES['kategoriresim']["name"];
+
+	$sayi=rand(1,10000000);
+	$sayi2=rand(1,1000000);
+	$sayi3=rand(10000,20000000);
+
+	$sayilar=$sayi.$sayi2.$sayi3;
+	$resimyolu=$sayilar.$name;
+
+	@move_uploaded_file($tmp_name, "$uploads_dir/$sayilar$name");
+
+*/
 		$kategorikaydet = $baglanti->prepare("INSERT into kategori SET
 
 
 		kategori_adi=:kategori_adi,
+	/*	kategori_resim=:kategori_resim, */
 		kategori_sira=:kategori_sira,
 		kategori_durum=:kategori_durum
 
@@ -413,6 +428,7 @@ if (isset($_POST['kategorikaydet'])) {
 	$insert = $kategorikaydet->execute(array(
 
 	'kategori_adi'=>$_POST['katadi'],
+	//'kategori_resim'=>$resimyolu,
 	'kategori_sira'=>$_POST['sira'],
 	'kategori_durum'=>$_POST['kategoridurum']
 
@@ -434,13 +450,31 @@ if (isset($_POST['kategorikaydet'])) {
 
 if (isset($_POST['kategoriduzenle'])) {
 
-$kat=$_POST['katid'];
+	
+	/*if ($_FILES['kategoriresim'] ["size"]>0) {
+	$uploads_dir='../resimler/kategori';
+	@$tmp_name=$_FILES['kategoriresim'] ["tmp_name"];
+	@$name=$_FILES['kategoriresim']["name"];
+
+	$sayi=rand(1,10000000);
+	$sayi2=rand(1,1000000);
+	$sayi3=rand(10000,20000000);
+
+	$sayilar=$sayi.$sayi2.$sayi3;
+	$resimyolu=$sayilar.$name;
+
+	@move_uploaded_file($tmp_name, "$uploads_dir/$sayilar$name");
+
+	*/
+
+	$kat=$_POST['katid'];
 
 	$duzenle = $baglanti->prepare("UPDATE kategori SET
 
 
 
 		kategori_adi=:kategori_adi,
+	/*	kategori_resim=:kategori_resim, */
 		kategori_sira=:kategori_sira,
 		kategori_durum=:kategori_durum
 
@@ -451,6 +485,7 @@ $kat=$_POST['katid'];
 	$update = $duzenle->execute(array(
 
 	'kategori_adi'=>$_POST['katadi'],
+	//'kategori_resim'=>$resimyolu,
 	'kategori_sira'=>$_POST['sira'],
 	'kategori_durum'=>$_POST['kategoridurum']
 
@@ -465,7 +500,7 @@ $kat=$_POST['katid'];
 }
 
 
-
+	
 
 
 
@@ -488,6 +523,14 @@ $kategorisil=$baglanti->prepare("DELETE FROM kategori where kategori_id=:kategor
 	}
 	
 }
+
+
+
+
+
+
+
+
 
 
 

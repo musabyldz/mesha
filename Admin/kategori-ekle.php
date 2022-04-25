@@ -31,6 +31,10 @@ require_once 'sidebar.php';
                     <label for="exampleInputEmail1">Kategori Adı</label>
                     <input  name="katadi" type="text" class="form-control" placeholder="Lütfen kategori adını giriniz.">
                   </div>
+    <!--            <div class="form-group">
+                    <label for="exampleInputEmail1">Kategori Resim</label>
+                    <input  name="kategoriresim" type="file" class="form-control">
+                  </div>  -->
                   <div class="form-group">
                     <label for="exampleInputPassword1">Kategori Sıra</label>
                     <input  name="sira" type="text" class="form-control"  placeholder="Lütfen kategori sırası giriniz.">

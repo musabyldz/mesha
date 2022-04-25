@@ -47,7 +47,22 @@ $kategoricek=$kategori->fetch(PDO::FETCH_ASSOC);
                     <label for="exampleInputEmail1">Kategori Adı</label>
                     <input value="<?php echo $kategoricek['kategori_adi'] ?>" name="katadi" type="text" class="form-control" placeholder="Lütfen kategori adını giriniz.">
                   </div>
+                  
+                  <!-- <div class="form-group">
+                    <label for="exampleInputEmail1">Kategori Resim</label>
+                    <img style="width: 300px" src="resimler/kategori/<?php echo $kategoricek['kategori_resim']; ?>">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Kategori Resim</label>
+                    <input  name="kategoriresim" type="file" class="form-control">
+                  </div>
+
+
+
+                  <input type="hidden" name="eskiresim" value="<?php echo $kategoricek['kategori_resim'] ?>">   -->
                   <input type="hidden" name="katid" value="<?php echo $kategoricek['kategori_id'] ?>">
+                  
                   <div class="form-group">
                     <label for="exampleInputPassword1">Kategori Sıra</label>
                     <input value="<?php echo $kategoricek['kategori_sira'] ?>" name="sira" type="text" class="form-control"  placeholder="Lütfen kategori sırası giriniz.">
