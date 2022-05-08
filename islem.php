@@ -2,6 +2,7 @@
 
 require_once 'Admin/islem/baglanti.php';
 
+
 if (isset($_POST['login'])) {
 
 	$kadi=htmlspecialchars($_POST['kadi']);
@@ -22,12 +23,12 @@ if (isset($_POST['login'])) {
 	$var=$kullanicisor->rowCount();
 
 	if ($var > 0) {
-	$_SESSION['normalgiris']=$kadi;
-	header("Location:index?durum=hosgeldin");
+		$_SESSION['normalgiris']=$kadi;
+		Header("Location:index?durum=hosgeldin");
 	}
 	else
 	{
-		header("Location:giris?durum=hata");
+		Header("Location:giris?durum=hata");
 	}
 
 }
@@ -101,14 +102,14 @@ else{
 					header("Location:giris?durum=basarisiz");
 				}
 		
-		}
-		else{
-			header("Location:giris?durum=sifreeksik");
-		}
-		}
-		else{
-			header("Location:giris?durum=sifrehata");
-		}
+	}
+	else{
+		header("Location:giris?durum=sifreeksik");
+	}
+	}
+	else{
+		header("Location:giris?durum=sifrehata");
+	}
 }
 
 }
