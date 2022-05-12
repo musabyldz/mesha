@@ -50,6 +50,7 @@ require_once 'sidebar.php' ?>
                       <th>Ürün Adet Sayısı</th>
                       <th>Düzenle</th>
                       <th>Sil</th>
+                      <th></th>
                     </tr>
                   </thead>
                   <tbody>
@@ -83,6 +84,7 @@ require_once 'sidebar.php' ?>
                       <td><button name="urunlersil" type="submit" class="btn btn-danger">Sil</button></td>
 
                     </form>
+                    <td><a href="cokluresim?id=<?php echo $urunlercek['urun_id'] ?>"><button class="btn btn-success">Çoklu Resim</button></a></td>
                     </tr>
 
                   <?php } ?>
