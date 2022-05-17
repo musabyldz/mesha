@@ -401,25 +401,12 @@ $kullanicisil=$baglanti->prepare("DELETE FROM kullanici where kullanici_id=:kull
 
 if (isset($_POST['kategorikaydet'])) {
 
-/*	$uploads_dir='../resimler/kategori';
-	@$tmp_name=$_FILES['kategoriresim'] ["tmp_name"];
-	@$name=$_FILES['kategoriresim']["name"];
 
-	$sayi=rand(1,10000000);
-	$sayi2=rand(1,1000000);
-	$sayi3=rand(10000,20000000);
-
-	$sayilar=$sayi.$sayi2.$sayi3;
-	$resimyolu=$sayilar.$name;
-
-	@move_uploaded_file($tmp_name, "$uploads_dir/$sayilar$name");
-
-*/
 		$kategorikaydet = $baglanti->prepare("INSERT into kategori SET
 
 
 		kategori_adi=:kategori_adi,
-	/*	kategori_resim=:kategori_resim, */
+	
 		kategori_sira=:kategori_sira,
 		kategori_durum=:kategori_durum
 
@@ -428,7 +415,7 @@ if (isset($_POST['kategorikaydet'])) {
 	$insert = $kategorikaydet->execute(array(
 
 	'kategori_adi'=>$_POST['katadi'],
-	//'kategori_resim'=>$resimyolu,
+	
 	'kategori_sira'=>$_POST['sira'],
 	'kategori_durum'=>$_POST['kategoridurum']
 
@@ -451,21 +438,7 @@ if (isset($_POST['kategorikaydet'])) {
 if (isset($_POST['kategoriduzenle'])) {
 
 	
-	/*if ($_FILES['kategoriresim'] ["size"]>0) {
-	$uploads_dir='../resimler/kategori';
-	@$tmp_name=$_FILES['kategoriresim'] ["tmp_name"];
-	@$name=$_FILES['kategoriresim']["name"];
 
-	$sayi=rand(1,10000000);
-	$sayi2=rand(1,1000000);
-	$sayi3=rand(10000,20000000);
-
-	$sayilar=$sayi.$sayi2.$sayi3;
-	$resimyolu=$sayilar.$name;
-
-	@move_uploaded_file($tmp_name, "$uploads_dir/$sayilar$name");
-
-	*/
 
 	$kat=$_POST['katid'];
 
@@ -474,7 +447,7 @@ if (isset($_POST['kategoriduzenle'])) {
 
 
 		kategori_adi=:kategori_adi,
-	/*	kategori_resim=:kategori_resim, */
+	
 		kategori_sira=:kategori_sira,
 		kategori_durum=:kategori_durum
 
@@ -485,7 +458,7 @@ if (isset($_POST['kategoriduzenle'])) {
 	$update = $duzenle->execute(array(
 
 	'kategori_adi'=>$_POST['katadi'],
-	//'kategori_resim'=>$resimyolu,
+	
 	'kategori_sira'=>$_POST['sira'],
 	'kategori_durum'=>$_POST['kategoridurum']
 
@@ -988,6 +961,203 @@ $urunlersil=$baglanti->prepare("DELETE FROM urunler where urun_id=:urun_id ");
 
 
 
+
+
+
+
+
+
+
+
+if (isset($_POST['cokluresimsil'])) {
+
+$yonlendir=$_POST['id'];	
+
+$cokluresimsil=$baglanti->prepare("DELETE FROM cokluresim where id=:id ");
+
+		$cokluresimsil->execute(array(
+			
+			'id'=>$_POST['id']
+
+		));
+
+	if ($cokluresimsil) {
+
+		$resimsil=$_POST['resim'];
+		unlink("../resimler/cokluresim/$resimsil");
+
+			header("Location:../cokluresim?id=$yonlendir&yuklenme=basarili");
+	}
+	else{
+			header("Location:../cokluresim?id=$yonlendir&yuklenme=basarisiz");
+
+	}
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+if (isset($_POST['kullaniciduzenle'])) {
+	
+	$id=$_POST['kullaniciid'];
+
+	$duzenle = $baglanti->prepare("UPDATE kullanici SET
+
+
+
+
+
+
+	kullanici_adsoyad=:kullanici_adsoyad,
+	kullanici_email=:kullanici_email,
+	kullanici_adres=:kullanici_adres,
+	kullanici_il=:kullanici_il,
+	kullanici_ilce=:kullanici_ilce,
+	kullanici_tel=:kullanici_tel
+
+	WHERE kullanici_id=$id
+
+		");
+
+	$update = $duzenle->execute(array(
+
+	'kullanici_adsoyad'=>$_POST['adsoyad'],
+	'kullanici_email'=>$_POST['email'],
+	'kullanici_adres'=>$_POST['adres'],
+	'kullanici_il'=>$_POST['il'],
+	'kullanici_ilce'=>$_POST['ilce'],
+	'kullanici_tel'=>$_POST['telefon']
+
+	));
+
+	if ($update) {
+	header("Location:../../kullanici?yuklenme=basarili");
+	}
+	else{
+	header("Location:../../kullanici?yuklenme=basarisiz");
+	}
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+if (isset($_POST['yorumkaydet'])) {
+
+$gelenurl=$_SERVER['HTTP_REFERER'];
+		$yorumkaydet = $baglanti->prepare("INSERT into yorumlar SET
+
+
+		yorum_detay=:yorum_detay,
+		urun_id=:urun_id,
+		kullanici_id=:kullanici_id,
+		yorum_onay=:yorum_onay
+
+		");
+
+	$insert = $yorumkaydet->execute(array(
+
+	'yorum_detay'=>$_POST['yorum'],
+	'urun_id'=>$_POST['urunid'],
+	'kullanici_id'=>$_POST['kullaniciid'],
+	'yorum_onay'=>0
+
+	));
+
+	if ($insert) {
+
+		header("Location:$gelenurl?yuklenme=basarili");
+	}
+	else{
+		header("Location:$gelenurl?yuklenme=basarisiz");
+	}
+}
+
+
+
+
+if (isset($_POST['yorumonayla'])) {
+	
+$yorumid=$_POST['yorumid'];
+
+	$duzenle = $baglanti->prepare("UPDATE yorumlar SET
+
+
+
+		yorum_onay=:yorum_onay
+
+	WHERE yorum_id=$yorumid
+
+		");
+
+	$update = $duzenle->execute(array(
+
+	'yorum_onay'=>1
+	
+
+	));
+
+	if ($update) {
+	header("Location:../yorumlar.php?yuklenme=basarili");
+	}
+	else{
+	header("Location:../yorumlar.php?yuklenme=basarisiz");
+	}
+
+
+}
+
+
+
+
+
+
+
+
+if (isset($_GET['yorumlarsil'])) {
+
+$yorumlarsil=$baglanti->prepare("DELETE FROM yorumlar where yorum_id=:yorum_id ");
+
+		$yorumlarsil->execute(array(
+			'yorum_id'=>$_GET['id']
+
+		));
+
+	if ($yorumlarsil) {
+	header("Location:../yorumlar?durum=basarili");
+	}
+	else{
+	header("Location:../yorumlar?durum=hata");
+
+	}
+	
+}
 
 
  ?>

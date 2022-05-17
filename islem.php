@@ -1,5 +1,5 @@
 <?php 
-
+session_start();
 require_once 'Admin/islem/baglanti.php';
 
 
@@ -45,6 +45,7 @@ if (isset($_POST['register'])) {
 
 	$kadi=htmlspecialchars($_POST['kadi']);
 	$sifre=htmlspecialchars($_POST['sifre']);
+	$sifrem=md5($sifre);
 	$sifreiki=htmlspecialchars($_POST['sifretekrar']);
 	$email=htmlspecialchars($_POST['email']);
 	$adsoyad=htmlspecialchars($_POST['adsoyad']);
@@ -87,7 +88,7 @@ else{
 				$insert = $kullanicikaydet->execute(array(
 
 				'kullanici_adi'=>$kadi,
-				'kullanici_sifre'=>$sifre,
+				'kullanici_sifre'=>$sifrem,
 				'kullanici_adsoyad'=>$adsoyad,
 				'kullanici_yetki'=>1,
 				'kullanici_email'=>$email

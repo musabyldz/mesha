@@ -20,24 +20,10 @@ require_once 'sidebar.php' ?>
                 <?php }
               ?>
 
-
-              
-
           <div class="col-12">
-            <form action="resimyukle" method="post" enctype="multipart/form-data" class="dropzone">
-                
-
-              <input type="hidden" name="id" value="<?php echo $_GET['id'] ?>">
-
-
-
-
-
-
-              </form>
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Çoklu Resim</h3>
+                <h3 class="card-title">Yorumlar Tablosu</h3>
 
                 <div class="card-tools">
                   <div class="input-group input-group-sm" style="width: 150px;">
@@ -52,36 +38,49 @@ require_once 'sidebar.php' ?>
               <!-- /.card-header -->
               <div class="card-body table-responsive p-0">
                 <table class="table table-hover text-nowrap">
-                  <thead>
+                                  <thead>
                     <tr>
-                      <th>Resim</th>
-                      
+                      <th>Yorum Zaman</th>
+                      <th>Yorum Detay</th>
+                      <th>Ürün ID</th>
+                      <th>Kullanıcı ID</th>
+                      <th>Onayla</th>
                       <th>Sil</th>
+                      
                     </tr>
                   </thead>
                   <tbody>
 
                     <?php 
-                      $cokluresim=$baglanti->prepare("SELECT * FROM cokluresim where urun_id=:urun_id order by id ASC");
-                      $cokluresim->execute(array(
-
-                        'urun_id'=>$_GET['id']
-
-
-                      ));
-                      while ($cokluresimcek=$cokluresim->fetch(PDO::FETCH_ASSOC)) { ?>
+                      $yorumlar=$baglanti->prepare("SELECT * FROM yorumlar order by yorum_id DESC");
+                      $yorumlar->execute();
+                      while ($yorumlarcek=$yorumlar->fetch(PDO::FETCH_ASSOC)) { ?>
 
                     <tr>
-                      <td><img style="width: 350px" src="resimler/cokluresim/<?php echo $cokluresimcek['resim'] ?>"></td>
+                      <td><?php echo $yorumlarcek['yorum_zaman'] ?></td>
+                      <td><?php echo $yorumlarcek['yorum_detay'] ?></td>
+                      <td><?php echo $yorumlarcek['urun_id'] ?></td>
+                      <td><?php echo $yorumlarcek['kullanici_id'] ?></td>
+                      
+                        
+                      
+                      <td>
+                        <form action="islem/islem.php" method="post">
+                        <input type="hidden" name="yorumid" value="<?php echo $yorumlarcek['yorum_id'] ?>">
+                        <button <?php if ($yorumlarcek['yorum_onay']=="1") {
+                          echo "disabled";
+                        } ?> name="yorumonayla" type="submit" class="btn btn-info">Onayla</button></td>
+
+                        </form>
+
+                      <td><a href="islem/islem.php?yorumlarsil&id=<?php echo $yorumlarcek['yorum_id'] ?>"><button type="submit" class="btn btn-danger">Sil</button></a></td>
+                      
+
+                        
                       
                      
-                      <form action="islem/islem.php" method="POST">
-                        <input type="hidden" name="urunid" value="<?php echo $_GET['id'] ?>">
-                        <input type="hidden" name="id" value="<?php echo $cokluresimcek['id'] ?>">
-                        <input type="hidden" name="resim" value="<?php echo $cokluresimcek['resim'] ?>">
-                      <td><button name="cokluresimsil" type="submit" class="btn btn-danger">Sil</button></td>
-
-                    </form>
+                      
+                      
                     </tr>
 
                   <?php } ?>

@@ -14,16 +14,14 @@ $hakkimizda->execute(array(1));
 $hakkimizdacek=$hakkimizda->fetch(PDO::FETCH_ASSOC);
 
 
- $kullanicisor=$baglanti->prepare("SELECT * from kullanici where kullanici_adi=:kullanici_adi  ");
- $kullanicisor->execute(array(
+$kullanicisor=$baglanti->prepare("SELECT * from kullanici where kullanici_adi=:kullanici_adi ");
+$kullanicisor->execute(array(
 'kullanici_adi'=>$_SESSION['normalgiris']
- ));
+
+));
+
 $kullanicicek=$kullanicisor->fetch(PDO::FETCH_ASSOC);
 $var=$kullanicisor->rowCount();
-
-
-
- 
 
 
 

@@ -4,9 +4,11 @@ session_start();
 
 require_once 'islem/baglanti.php';
 
-$kullanicisor=$baglanti->prepare("SELECT * from kullanici where kullanici_adi=:kullanici_adi");
+$kullanicisor=$baglanti->prepare("SELECT * from kullanici where kullanici_adi=:kullanici_adi and kullanici_yetki=:kullanici_yetki");
 $kullanicisor->execute(array(
-'kullanici_adi'=>$_SESSION['girisbelgesi']
+'kullanici_adi'=>$_SESSION['girisbelgesi'],
+
+'kullanici_yetki'=>2
 
 
 ));
