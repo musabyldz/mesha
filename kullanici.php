@@ -1,5 +1,25 @@
 <?php   
 require_once 'header.php';
+
+
+if ($var==0){
+    #kullanıcı yoksa
+
+    Header("Location:giris?durum=girisyap");
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 ?>
 
             <!-- Begin Login Content Area -->
@@ -94,7 +114,7 @@ require_once 'header.php';
                                             <input name="adsoyad" required="" class="mb-0" type="text" placeholder="Ad Soyad Giriniz">
                                         </div>
                                         <div class="col-md-12 mb-20">
-                                            <label>Email Addresi</label>
+                                            <label>Email Adresi</label>
                                             <input name="email" required="" class="mb-0" type="email" placeholder="Email Adresini Giriniz">
                                         </div>
                                         <div class="col-md-6 mb-20">
@@ -112,7 +132,12 @@ require_once 'header.php';
                                 </div>
                             </form>
                         </div>
-                    </div>
+
+                         
+
+                    </div> 
+                    <a href="cikis"><button style="float: right;" class="btn btn-info">
+                        <i class="fa fa-sign-out"></i>Çıkış Yap</button></a>
                 </div>
             </div>
             <!-- Login Content Area End Here -->

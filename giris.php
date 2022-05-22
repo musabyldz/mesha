@@ -15,6 +15,14 @@ require_once 'header.php';
                                             <?php if (@$_GET['durum']=="hata") { ?>
                                             <i style="color:red;"> Kullanıcı Adı veya Şifre Hatalı </i>
                                             <?php } ?>
+
+                                            <?php if (@$_GET['durum']=="gulegule") { ?>
+                                            <i style="color:#FF6347;"> Görüşmek Üzere </i>
+                                            <?php } ?>
+
+                                            <?php if (@$_GET['durum']=="girisyap") { ?>
+                                            <i style="color:#DB7093;"> Lütfen Giriş Yapınız </i>
+                                            <?php } ?>
                                             
                                     </h4>
                                     <div class="row">
