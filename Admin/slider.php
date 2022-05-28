@@ -64,7 +64,7 @@ require_once 'sidebar.php' ?>
                       <td><?php echo $slidercek['slider_baslik'] ?></td>
                       <td><?php echo $slidercek['slider_aciklama'] ?></td>
                       <td><?php echo $slidercek['slider_button'] ?></td>
-                      <td><span class="tag tag-danger">
+                      <td><span class="tag tag-success">
                         <?php 
                           if ($slidercek['slider_durum']=="1") {
                             echo "Aktif";
@@ -76,7 +76,7 @@ require_once 'sidebar.php' ?>
                       </span></td>
 
                       <td><?php echo $slidercek['slider_sira'] ?></td>
-                      <td><span class="tag tag-danger">
+                      <td><span class="tag tag-success">
                         <?php 
                           if ($slidercek['slider_banner']=="1") {
                             echo "slider";

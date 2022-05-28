@@ -89,16 +89,17 @@
                                         </p>
                                     </div>
                                     <div class="single-add-to-cart">
-                                        <form action="#" class="cart-quantity">
+                                        <form action="islem" method="post" class="cart-quantity">
                                             <div class="quantity">
                                                 <label>Adet</label>
                                                 <div class="cart-plus-minus">
-                                                    <input class="cart-plus-minus-box" value="1" type="text">
+                                                    <input name="adet" class="cart-plus-minus-box" value="1" type="text">
                                                     <div class="dec qtybutton"><i class="fa fa-angle-down"></i></div>
                                                     <div class="inc qtybutton"><i class="fa fa-angle-up"></i></div>
                                                 </div>
                                             </div>
-                                            <button class="add-to-cart" type="submit">Sepete Ekle</button>
+                                            <input type="hidden" name="urunid" value="<?php echo $urunlercek['urun_id'] ?>">
+                                            <button name="sepeteekle" class="add-to-cart" type="submit">Sepete Ekle</button>
                                         </form>
                                     </div>
                                     <div class="product-additional-info">

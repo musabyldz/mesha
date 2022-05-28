@@ -137,38 +137,52 @@ $var=$kullanicisor->rowCount();
                                             <span></span>
                                             <div class="minicart">
                                                 <ul class="minicart-product-list">
+
+                                            <?php 
+
+
+                                            foreach ($_COOKIE['sepet'] as $key => $value) {
+    
+                                            $urunler=$baglanti->prepare("SELECT * FROM  urunler where urun_id=:urun_id  order by urun_sira ASC");
+                                            $urunler->execute(array(
+                                                'urun_id'=>$key
+
+                                            ));
+                                            $urunlercek=$urunler->fetch(PDO::FETCH_ASSOC);
+
+                                            $sepettoplam+=$value * $urunlercek['urun_fiyat'];
+
+                                            ?>
+
+
+
                                                     <li>
                                                         <a href="single-product.html" class="minicart-product-image">
-                                                            <img src="images/product/small-size/5.jpg" alt="cart products">
+                                                            <img src="Admin/resimler/urunler/<?php echo $urunlercek['urun_resim'] ?>" alt="cart products">
                                                         </a>
                                                         <div class="minicart-product-details">
-                                                            <h6><a href="single-product.html">Aenean eu tristique</a></h6>
-                                                            <span>£40 x 1</span>
+                                                            <h6><a href="single-product.html"><?php echo $urunlercek['urun_baslik'] ?></a></h6>
+                                                            <span><?php echo $urunlercek['urun_fiyat'] ?>₺</span>
                                                         </div>
-                                                        <button class="close" title="Remove">
+                                                        <a href="islem?sepetsil&id=<?php echo $key ?>"> <button class="close" title="Remove">
                                                             <i class="fa fa-close"></i>
-                                                        </button>
+                                                        </button></a>
                                                     </li>
-                                                    <li>
-                                                        <a href="single-product.html" class="minicart-product-image">
-                                                            <img src="images/product/small-size/6.jpg" alt="cart products">
-                                                        </a>
-                                                        <div class="minicart-product-details">
-                                                            <h6><a href="single-product.html">Aenean eu tristique</a></h6>
-                                                            <span>£40 x 1</span>
-                                                        </div>
-                                                        <button class="close" title="Remove">
-                                                            <i class="fa fa-close"></i>
-                                                        </button>
-                                                    </li>
+
+
+                                            <?php } ?>
+
+                                                    
                                                 </ul>
-                                                <p class="minicart-total">SUBTOTAL: <span>£80.00</span></p>
+                                                <p class="minicart-total">Toplam Fİyat: <span><?php 
+                                                echo $sepettoplam;
+                                                ?></span></p>
                                                 <div class="minicart-button">
-                                                    <a href="shopping-cart.html" class="li-button li-button-fullwidth li-button-dark">
-                                                        <span>View Full Cart</span>
+                                                    <a href="sepet" class="li-button li-button-fullwidth li-button-dark">
+                                                        <span>Sepetİ Görüntüle</span>
                                                     </a>
-                                                    <a href="checkout.html" class="li-button li-button-fullwidth">
-                                                        <span>Checkout</span>
+                                                    <a href="alisveris" class="li-button li-button-fullwidth">
+                                                        <span>Alışverİşİ Tamamla</span>
                                                     </a>
                                                 </div>
                                             </div>

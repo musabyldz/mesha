@@ -67,12 +67,6 @@ $urunlercek=$urunler->fetch(PDO::FETCH_ASSOC);
 
                   <div class="form-group">
                     <label for="exampleInputEmail1">Ürün Resim</label>
-                    <img style="200px" src="resimler/urunler/<?php echo $urunlercek['urun_resim']; ?>">
-                  </div>
-
-
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">Ürün Resim</label>
                     <input  name="urunlerresim" type="file" class="form-control">
                   </div>
                   

@@ -63,6 +63,17 @@
             </a>
           </li>
 
+
+          <li class="nav-item">
+            <a href="siparisler" class="nav-link">
+              <i class="fas fa-shopping-cart"></i>
+              <p>
+                Siparişler
+                <span class="right badge badge-danger">Yeni</span>
+              </p>
+            </a>
+          </li>
+
           <li class="nav-item">
             <a href="uyeler" class="nav-link">
               <i class="fas fa-users"></i>
