@@ -145,16 +145,17 @@ $var=$kullanicisor->rowCount();
                             <!-- Begin Header Middle Right Area -->
                             <div class="col-lg-9 pl-0 ml-sm-15 ml-xs-15">
                                 <!-- Begin Header Middle Searchbox Area -->
-                                <form action="#" class="hm-searchbox">
+                                <form action="arama" method="post" class="hm-searchbox">
                                     <select class="nice-select select-search-category">
-                                       
-                                        <option value="13">Cameras</option>                          
-                                        <option value="14">headphone</option>                                
-                                        <option value="15">Smartwatch</option>                           
-                                        <option value="16">Accessories</option>
+                                        <?php  
+                  $kategori=$baglanti->prepare("SELECT * FROM  kategori  order by kategori_sira ASC");
+                  $kategori->execute();
+                  while ($kategoricek=$kategori->fetch(PDO::FETCH_ASSOC)) { ?>
+                                        <option value="<?php echo $kategoricek['kategori_id'] ?>" ><?php echo $kategoricek['kategori_adi'] ?></option>                          
+                                   <?php  } ?>
                                     </select>
-                                    <input type="text" placeholder="Enter your search key ...">
-                                    <button class="li-btn" type="submit"><i class="fa fa-search"></i></button>
+                                    <input type="text" name="aranacakkelime" placeholder="Aradığınız kelimeyi girin.">
+                                    <button  name=" kelimearama" class="li-btn" type="submit"><i class="fa fa-search"></i></button>
                                 </form>
                                 <!-- Header Middle Searchbox Area End Here -->
                                 <!-- Begin Header Middle Right Area -->
@@ -174,8 +175,8 @@ $var=$kullanicisor->rowCount();
                                         <li class="hm-minicart">
                                             <div class="hm-minicart-trigger">
                                                 <span class="item-icon"></span>
-                                                <span class="item-text">£80.00
-                                                    <span class="cart-item-count">2</span>
+                                                <span class="item-text">Sepetim
+                                                    <span class="cart-item-count"></span>
                                                 </span>
                                             </div>
                                             <span></span>
@@ -250,8 +251,8 @@ $var=$kullanicisor->rowCount();
                                 <div class="hb-menu">
                                     <nav>
                                         <ul>
-                                         <li><a href="index.php">Anasayfa</a></li>
-                                            <li class="megamenu-holder"><a href="shop-left-sidebar.html">Kategorİler</a>
+                                         <li><a href="index">Anasayfa</a></li>
+                                            <li class="megamenu-holder"><a href="">Kategorİler</a>
                                                 <ul class="megamenu hb-megamenu">
 
 
@@ -305,9 +306,9 @@ $var=$kullanicisor->rowCount();
                                             </li>
                                             
                                             
-                                            <li><a href="about-us.html">Hakkımızda</a></li>
-                                            <li><a href="contact.html">Kargo BİLGİLERİ</a></li>
-                                            <li><a href="shop-left-sidebar.html">İLETİŞİM</a></li>
+                                            <li><a href="hakkimizda">Hakkımızda</a></li>
+                                            <li><a href="bilgi">Kargo BİLGİLERİ</a></li>
+                                            <li><a href="iletisim">İLETİŞİM</a></li>
                                        
                                         </ul>
                                     </nav>
