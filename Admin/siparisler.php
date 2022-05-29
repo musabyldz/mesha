@@ -41,6 +41,7 @@ require_once 'sidebar.php' ?>
                   
                   <thead>
                     <tr>
+                      <th>Sipariş ID</th>
                       <th>Kullanıcı ID</th>
                       <th>Ürün ID</th>
                       <th>Sipariş Zaman</th>
@@ -60,6 +61,7 @@ require_once 'sidebar.php' ?>
                       while ($sipariscek=$siparis->fetch(PDO::FETCH_ASSOC)) { ?>
 
                     <tr>
+                      <td><?php echo $sipariscek['siparis_id'] ?></td>
                       <td><?php echo $sipariscek['kullanici_id'] ?></td>
                       <td><?php echo $sipariscek['urun_id'] ?></td>
                       <td><?php echo $sipariscek['siparis_zaman'] ?></td>
@@ -78,14 +80,16 @@ require_once 'sidebar.php' ?>
                           }
                          ?>
                       </span></td>
-                      
-                      <td><a href="siparis-duzenle?id=<?php echo $sipariscek['siparis_id'] ?>"><button type="submit" class="btn btn-info">Düzenle</button></a></td>
-                      <form action="islem/islem.php" method="POST">
-                        <input type="hidden" name="id" value="<?php echo $sipariscek['siparis_id'] ?>">
+                      <?php if ($sipariscek['siparis_onay']=="0") { ?>
                         
-                      <td><button name="siparissil" type="submit" class="btn btn-danger">Sil</button></td>
+                      
+                      
+                      <td><a href="islem/islem.php?siparisonayla&id=<?php echo $sipariscek['siparis_id'] ?>"><button type="submit" class="btn btn-info">Onayla</button></a></td>
+                     
+                        
+                      <td><a href="islem/islem.php?siparisreddet&id=<?php echo $sipariscek['siparis_id'] ?>"><button type="submit" class="btn btn-danger">Reddet</button></a></td>
 
-                    </form>
+                    <?php } ?>
                     </tr>
 
                   <?php } ?>

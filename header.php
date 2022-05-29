@@ -85,7 +85,51 @@ $var=$kullanicisor->rowCount();
         <div class="body-wrapper">
             <!-- Begin Header Area -->
             <header>
-                
+
+
+
+                <div style="background-color: black;" class="header-top">
+                    <div class="container">
+                        <div class="row">
+                            <!-- Begin Header Top Left Area -->
+                            <div class="col-lg-3 col-md-4">
+                                <div class="header-top-left">
+                                    <ul class="phone-wrap">
+                                        <li><span style="color: white;">Telefon:  </span><a style="color: white;" href="#"><?php echo $ayarcek['telefon'] ?></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- Header Top Left Area End Here -->
+                            <!-- Begin Header Top Right Area -->
+                            <div class="col-lg-9 col-md-8">
+                                <div class="header-top-right">
+                                    <ul class="ht-menu">
+                                        <!-- Begin Setting Area -->
+                                        <li>
+                                            <div class="ht-setting-trigger"><span style="color: white;">Hesabım</span></div>
+                                            <div class="setting ht-setting">
+                                                <ul class="ht-setting-list">
+                                                    <li><a href="kullanici">Hesabım</a></li>
+                                                    <li><a href="sepet">Sepetim</a></li>
+                                                    <li><a href="siparisler">Önceki Siparişlerim</a></li>
+                                                    <li><a href="sifremidegistir">Şifremi Değiştir</a></li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                     
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- Header Top Right Area End Here -->
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
                 <div class="header-middle pl-sm-0 pr-sm-0 pl-xs-0 pr-xs-0">
                     <div class="container">
                         <div class="row">
