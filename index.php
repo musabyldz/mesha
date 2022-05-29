@@ -1,4 +1,5 @@
 <?php require_once 'header.php'; ?>
+<title>Mesha E-Ticaret</title>
             <!-- Header Area End Here -->
 <?php require_once 'slider.php'; ?>
             <!-- Begin Product Area -->

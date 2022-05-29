@@ -406,7 +406,6 @@ if (isset($_POST['kategorikaydet'])) {
 
 
 		kategori_adi=:kategori_adi,
-	
 		kategori_sira=:kategori_sira,
 		kategori_durum=:kategori_durum
 
@@ -415,7 +414,6 @@ if (isset($_POST['kategorikaydet'])) {
 	$insert = $kategorikaydet->execute(array(
 
 	'kategori_adi'=>$_POST['katadi'],
-	
 	'kategori_sira'=>$_POST['sira'],
 	'kategori_durum'=>$_POST['kategoridurum']
 
@@ -447,7 +445,6 @@ if (isset($_POST['kategoriduzenle'])) {
 
 
 		kategori_adi=:kategori_adi,
-	
 		kategori_sira=:kategori_sira,
 		kategori_durum=:kategori_durum
 
@@ -458,7 +455,6 @@ if (isset($_POST['kategoriduzenle'])) {
 	$update = $duzenle->execute(array(
 
 	'kategori_adi'=>$_POST['katadi'],
-	
 	'kategori_sira'=>$_POST['sira'],
 	'kategori_durum'=>$_POST['kategoridurum']
 
@@ -500,6 +496,24 @@ $kategorisil=$baglanti->prepare("DELETE FROM kategori where kategori_id=:kategor
 
 
 
+if (isset($_GET['abonesil'])) {
+
+$abonesil=$baglanti->prepare("DELETE FROM abone where abone_id=:abone_id ");
+
+		$abonesil->execute(array(
+			'abone_id'=>$_GET['id']
+
+		));
+
+	if ($abonesil) {
+		header("Location:../abone?yuklenme=basarili");
+	}
+	else{
+		header("Location:../abone?yuklenme=hata");
+
+	}
+	
+}
 
 
 

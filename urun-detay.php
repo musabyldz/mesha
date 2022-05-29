@@ -14,7 +14,7 @@
 
 
 
-
+                    <title><?php echo $urunlercek['urun_baslik'] ?></title>
 
 
             <div class="content-wraper">

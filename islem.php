@@ -220,5 +220,37 @@ if (isset($_POST['alisverisbitir'])) {
 
 
 
+if (isset($_POST['aboneol'])) {
+
+	$aboneol = $baglanti->prepare("INSERT into abone SET
+
+
+		abone_email=:abone_email
+
+		");
+
+	$insert = $aboneol->execute(array(
+
+	'abone_email'=>$_POST['abone']
+
+	));
+
+	if ($insert) {
+
+		header("Location:index?yuklenme=basarili");
+	}
+	else{
+		header("Location:index?yuklenme=basarisiz");
+	}
+
+
+
+
+
+
+}
+
+
+
 ?>
 

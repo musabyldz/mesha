@@ -42,7 +42,6 @@ $var=$kullanicisor->rowCount();
 <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Mesha E-Ticaret</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Favicon -->
@@ -136,8 +135,8 @@ $var=$kullanicisor->rowCount();
                             <!-- Begin Header Logo Area -->
                             <div class="col-lg-3">
                                 <div class="logo pb-sm-30 pb-xs-30">
-                                    <a href="index.html">
-                                        <img src="images/menu/logo/1.jpg" alt="">
+                                    <a href="index">
+                                        <img width="135px" src="images/menu/logo/1.png" alt="">
                                     </a>
                                 </div>
                             </div>
@@ -252,7 +251,7 @@ $var=$kullanicisor->rowCount();
                                     <nav>
                                         <ul>
                                          <li><a href="index">Anasayfa</a></li>
-                                            <li class="megamenu-holder"><a href="">Kategorİler</a>
+                                            <li class="megamenu-holder"><a href="urunler">Kategorİler</a>
                                                 <ul class="megamenu hb-megamenu">
 
 

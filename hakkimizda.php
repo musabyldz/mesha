@@ -1,5 +1,6 @@
 <?php require_once 'header.php'; ?>
  
+ <title>MESHA Hakkımızda</title>
             <div class="about-us-wrapper pt-60 pb-40">
                 <div class="container">
                     <div class="row">
@@ -24,7 +25,7 @@
                         <!-- About Image Start -->
                         <div class="col-lg-5 col-md-10">
                             <div class="about-image-wrap">
-                                <img class="img-full" src="Admin/resimler/hakkimizda/<?php echo $hakkimizdacek['hakkimizda_resim'] ?>" alt="About Us" />
+                                <img  class="img-full" src="Admin/resimler/hakkimizda/<?php echo $hakkimizdacek['hakkimizda_resim'] ?>" alt="About Us" />
                             </div>
                         </div>
                         <!-- About Image End -->

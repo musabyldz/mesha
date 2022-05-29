@@ -17,6 +17,8 @@ if ($var==0) {
 
 
 ?>
+
+<title>Şifremi Değiştir</title>
             <!-- Begin Login Content Area -->
             <div class="page-section mb-60">
                 <div class="container">

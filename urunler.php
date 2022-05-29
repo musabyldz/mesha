@@ -14,6 +14,8 @@ $urunler->execute(array(
 
 ?>
 
+
+<title>Tüm Ürünler</title>
 <div class="content-wraper pt-60 pb-60">
     <div class="container">
         <div class="row">

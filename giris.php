@@ -2,6 +2,7 @@
 require_once 'header.php';
 ?>
 
+<title>Giriş Yap</title>
             <!-- Begin Login Content Area -->
             <div class="page-section mb-60">
                 <div class="container">
@@ -41,7 +42,7 @@ require_once 'header.php';
                                             </div>
                                         </div>
                                         <div class="col-md-4 mt-10 mb-20 text-left text-md-right">
-                                            <a href="#"> Şifrenizi mi unuttunuz?</a>
+                                            <a href="sifremiunuttum"> Şifrenizi mi unuttunuz?</a>
                                         </div>
                                         <div class="col-md-12">
                                             <button name="login" class="register-button mt-0">Giriş Yap</button>

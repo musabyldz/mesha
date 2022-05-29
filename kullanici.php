@@ -22,6 +22,8 @@ if ($var==0){
 
 ?>
 
+
+<title>Kullanıcı Bilgileri</title>
             <!-- Begin Login Content Area -->
             <div class="page-section mb-60">
                 <div class="container">

@@ -1,6 +1,6 @@
 <?php require_once 'header.php'; ?>
             
-
+          <title>Kargo Bilgileri</title>
 
             <div class="frequently-area pt-60 pb-50">
                 <div class="container">

@@ -1,6 +1,6 @@
 <?php require_once 'header.php' ?>
 
-
+<title>Sepet</title>
             <div class="Shopping-cart-area pt-60 pb-60">
                 <div class="container">
                     <div class="row">
