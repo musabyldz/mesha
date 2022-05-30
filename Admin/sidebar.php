@@ -21,7 +21,7 @@
               <i class="fas fa-home"></i>
               <p>
                 Anasayfa
-                <span class="right badge badge-danger">Yeni</span>
+
               </p>
             </a>
           </li>
@@ -31,7 +31,7 @@
               <i class="fas fa-bars"></i>
               <p>
                 Kategoriler
-                <span class="right badge badge-danger">Yeni</span>
+
               </p>
             </a>
           </li>
@@ -41,7 +41,7 @@
               <i class="fas fa-address-card"></i>
               <p>
                 Hakkımızda
-                <span class="right badge badge-danger">Yeni</span>
+
               </p>
             </a>
           </li>
@@ -51,7 +51,7 @@
               <i class="fas fa-portrait"></i>
               <p>
                 Aboneler
-                <span class="right badge badge-danger">Yeni</span>
+
               </p>
             </a>
           </li>
@@ -61,28 +61,42 @@
               <i class="fas fa-image"></i>
               <p>
                 Slider
-                <span class="right badge badge-danger">Yeni</span>
+
               </p>
             </a>
           </li>
 
 
-          <li class="nav-item">
+          <li class="nav-item has-treeview menu-open">
             <a href="siparisler" class="nav-link">
               <i class="fas fa-shopping-cart"></i>
               <p>
                 Siparişler
-                <span class="right badge badge-danger">Yeni</span>
+                <i class="right fas fa-angle-left"></i>
               </p>
             </a>
-          </li>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+              <a href="#" class="nav-link">   
+                  <i class="fas fa-check"></i>
+                <p>Tamamlanan Siparişler</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                  <i class="fas fa-question"></i>
+                <p>Onay Bekleyen Siparişler</p>
+              </a>
+            </li>
+          </ul>
+        </li>
 
           <li class="nav-item">
             <a href="uyeler" class="nav-link">
               <i class="fas fa-users"></i>
               <p>
                 Üyeler
-                <span class="right badge badge-danger">Yeni</span>
+
               </p>
             </a>
           </li>
@@ -92,13 +106,13 @@
               <i class="fas fa-comments"></i>
               <p>
                 Yorumlar
-                <span class="right badge badge-danger">Yeni</span>
+
               </p>
             </a>
           </li>
 
           <li class="nav-item has-treeview menu-open">
-            <a href="#" class="nav-link active">
+            <a href="#" class="nav-link">
               <i class="nav-icon fas fa-cogs"></i>
               <p>
                 Ayarlar
@@ -107,7 +121,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="ayarlar" class="nav-link active">
+                <a href="ayarlar" class="nav-link">
                   <i class="fab fa-chrome"></i>
                   <p>Site Ayarları</p>
                 </a>
