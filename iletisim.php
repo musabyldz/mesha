@@ -1,6 +1,8 @@
 <?php require_once 'header.php'; ?>
 
-<title>MESHA İletişim</title>
+
+    <title>MESHA İletişim</title>
+
             <!-- Li's Breadcrumb Area End Here -->     
             <!-- Begin Contact Main Page Area -->
             <div class="contact-main-page mt-60 mb-40 mb-md-40 mb-sm-40 mb-xs-40">
@@ -50,9 +52,15 @@
                                             <label>Mesaj</label>
                                             <textarea name="mesaj"  ></textarea>
                                         </div>
+                                        <div>
+                                            
+                                            <input type="hidden" name="recaptchakodu" id="recaptchaalani">
+                                        </div>
                                         <div class="form-group">
                                             <button type="submit" value="submit" id="submit" class="li-btn-3" name="mailgonder">Gönder</button>
                                         </div>
+
+                                        
                                     </form>
                                 </div>
                                 <p class="form-messege"></p>

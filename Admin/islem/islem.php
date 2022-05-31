@@ -1206,10 +1206,10 @@ $siparisid=$_GET['id'];
 	));
 
 	if ($update) {
-	header("Location:../siparisler.php?yuklenme=basarili");
+	header("Location:../onaybekleyensiparisler.php?yuklenme=basarili");
 	}
 	else{
-	header("Location:../siparisler.php?yuklenme=basarisiz");
+	header("Location:../onaybekleyensiparisler.php?yuklenme=basarisiz");
 	}
 
 
@@ -1241,10 +1241,10 @@ $siparisid=$_GET['id'];
 	));
 
 	if ($update) {
-	header("Location:../siparisler.php?yuklenme=basarili");
+	header("Location:../onaybekleyensiparisler.php?yuklenme=basarili");
 	}
 	else{
-	header("Location:../siparisler.php?yuklenme=basarisiz");
+	header("Location:../onaybekleyensiparisler.php?yuklenme=basarisiz");
 	}
 
 

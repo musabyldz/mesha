@@ -77,13 +77,19 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-              <a href="#" class="nav-link">   
+              <a style="margin-left:10px;" href="onaylanansiparisler" class="nav-link">   
                   <i class="fas fa-check"></i>
-                <p>Tamamlanan Siparişler</p>
+                <p>Onaylanan Siparişler</p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">
+              <a style="margin-left:10px;" href="reddedilensiparisler" class="nav-link">
+                 <i class="fas fa-trash"></i>
+                <p>Reddedilen Siparişler</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a style="margin-left:10px;" href="onaybekleyensiparisler" class="nav-link">
                   <i class="fas fa-question"></i>
                 <p>Onay Bekleyen Siparişler</p>
               </a>
@@ -121,25 +127,25 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="ayarlar" class="nav-link">
+                <a style="margin-left:10px;" href="ayarlar" class="nav-link">
                   <i class="fab fa-chrome"></i>
                   <p>Site Ayarları</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="iletisim" class="nav-link">
+                <a style="margin-left:10px;" href="iletisim" class="nav-link">
                   <i class="fas fa-id-card"></i>
                   <p>İletişim Ayarları</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="sosyalmedya" class="nav-link">
+                <a style="margin-left:10px;" href="sosyalmedya" class="nav-link">
                   <i class="fas fa-hashtag"></i>
                   <p>Sosyal Medya Ayarları</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="kullanici" class="nav-link">
+                <a style="margin-left:10px;" href="kullanici" class="nav-link">
                   <i class="fas fa-user"></i>
                   <p>Kullanıcı Bilgileri</p>
                 </a>
