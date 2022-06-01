@@ -1,4 +1,4 @@
-<aside style="background-color: #203239;"class="main-sidebar sidebar-dark-primary elevation-4">
+<aside style="background-color: #1F2633;"class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="index" class="brand-link">
       <img  src="../images/menu/logo/2.png"  class="brand-image img-circle elevation-12"
@@ -151,14 +151,15 @@
                 </a>
               </li>
 
-              <li class="nav-item">
+              
+            </ul>
+          </li>
+          <li class="nav-item">
                 <a href="cikis" class="nav-link">
                   <i class="fas fa-sign-out-alt"></i>
                   <p>Çıkış Yap</p>
                 </a>
               </li>
-            </ul>
-          </li>
 
 
         </ul>

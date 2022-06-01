@@ -22,11 +22,13 @@
                                     <table class="table">
                                         <thead>
                                             <tr>
+                                                <th>Sipariş Numarası</th>
                                                 <th class="li-product-thumbnail">Resim</th>
                                                 <th class="cart-product-name">Başlık</th>
                                                 <th class="li-product-price">Fiyat</th>
                                                 <th class="li-product-quantity">Adet</th>
                                                 <th class="li-product-quantity">Zaman</th>
+                                                <th></th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -68,6 +70,7 @@
 
                                             <tr>
                                                 
+                                                <td><?php echo $sipariscek['siparis_id'] ?></td>
 
                                                 <td class="li-product-thumbnail"><a href="#"><img style="width:200px"; src="Admin/resimler/urunler/<?php echo $urunlercek['urun_resim'] ?>" alt="Li's Product Image"></a></td>
 
@@ -89,6 +92,32 @@
 
 
                                                 <td class="li-product-price"><span class="amount"><?php echo $sipariscek['siparis_zaman'] ?></span></td>
+                                                <td><!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Siparişi Güncelle
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Siparişinizi güncellemek mi istiyorsunuz?</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Eğer siparişi vermenizin üzerinden 24 saat geçmedi ise siparişinizi güncelleyebilirsiniz.<br>
+        24 saat sonra kargoya çıkacağı için siparişinizi güncelleyemezsiniz.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Kapat</button>
+        <a href="siparisguncelle"><button type="button" class="btn btn-primary">Siparişi Güncelle</button></a>
+      </div>
+    </div>
+  </div>
+</div></td>
 
 
                                                 

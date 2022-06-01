@@ -1,6 +1,19 @@
 <?php include 'header.php';
 require_once 'sidebar.php' ?>
 
+
+
+<head>
+  
+
+
+  <!-- DataTable CSS -->
+  <link rel="stylesheet" href="datatables.css">
+  
+
+</head>
+
+
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
  
@@ -18,7 +31,13 @@ require_once 'sidebar.php' ?>
                 elseif (@$_GET['yuklenme']=="basarisiz") { ?>
                   <h6 style="color:red">(Yükleme İşlemi Başarısız)</h6>
                 <?php }
+
               ?>
+
+               
+                  
+
+                  
 
           <div class="col-12">
             <div class="card">
@@ -35,10 +54,34 @@ require_once 'sidebar.php' ?>
                   </div>
                 </div>
               </div>
+
+
+
+
+
+                  <script>
+                    $(document).ready(function(){
+                    $('#example').DataTable();
+
+
+
+
+
+                      });
+                  </script>
+
+
+
+
+
               <!-- /.card-header -->
               <div class="card-body table-responsive p-0">
-                <table class="table table-hover text-nowrap">
+                <table class="table table-hover text-nowrap" id="example">
+
+                
                   
+
+
                   <thead>
                     <tr>
                       <th>Sipariş ID</th>
@@ -49,6 +92,8 @@ require_once 'sidebar.php' ?>
                       <th>Ürün Fiyat</th>
                       <th>Toplam Fiyat</th>
                       <th>Ödeme Durumu</th>
+                      <th>Sipariş Notu</th>
+                      <th>Yeni Adet Sayısı </th>
                     </tr>
                   </thead>
                   <tbody>
@@ -84,7 +129,13 @@ require_once 'sidebar.php' ?>
                           }
                          ?>
                       </span></td>
+                      <td><?php echo $sipariscek['siparis_not'] ?></td>
+                      <td><?php echo $sipariscek['siparis_yeniadet'] ?></td>
+
+
+                      <td><a href="siparisguncelle?id=<?php echo $sipariscek['siparis_id'] ?>"><button type="submit" class="btn btn-success">Sipariş Güncelle</button></a></td>
                     </tr>
+
 
                   <?php } ?>
 
@@ -96,7 +147,7 @@ require_once 'sidebar.php' ?>
             <!-- /.card -->
           </div>
 
-
+          
 
 
 
@@ -111,5 +162,8 @@ require_once 'sidebar.php' ?>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
+
+  <!-- DataTable JS -->
+  <script src="datatables.js"></script>
   
 <?php require_once 'footer.php'; ?>

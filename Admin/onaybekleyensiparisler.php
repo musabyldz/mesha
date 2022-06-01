@@ -49,6 +49,8 @@ require_once 'sidebar.php' ?>
                       <th>Ürün Fiyat</th>
                       <th>Toplam Fiyat</th>
                       <th>Ödeme Durumu</th>
+                      <th>Sipariş Notu</th>
+                      <th>Yeni Adet Sayısı </th>
                       <th>Onayla</th>
                       <th>Reddet</th>
                     </tr>
@@ -85,6 +87,8 @@ require_once 'sidebar.php' ?>
                           }
                          ?>
                       </span></td>
+                      <td><?php echo $sipariscek['siparis_not'] ?></td>
+                      <td><?php echo $sipariscek['siparis_yeniadet'] ?></td>
 
                       <?php if ($sipariscek['siparis_onay']=="0") { ?>
                         
@@ -94,6 +98,8 @@ require_once 'sidebar.php' ?>
                      
                         
                       <td><a href="islem/islem.php?siparisreddet&id=<?php echo $sipariscek['siparis_id'] ?>"><button type="submit" class="btn btn-danger">Reddet</button></a></td>
+
+                      <td><a href="siparisguncelle?id=<?php echo $sipariscek['siparis_id'] ?>"><button type="submit" class="btn btn-success">Sipariş Güncelle</button></a></td>
 
                     <?php } ?>
                     </tr>

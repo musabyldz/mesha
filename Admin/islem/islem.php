@@ -1263,4 +1263,91 @@ $siparisid=$_GET['id'];
 
 
 
+
+
+
+
+
+if (isset($_POST['siparisguncelle'])) {
+
+	
+
+
+	$siparisid=$_POST['siparisnumara'];
+
+	$duzenle = $baglanti->prepare("UPDATE siparisler SET
+
+
+
+		siparis_yeniadet=:siparis_yeniadet,
+		siparis_not=:siparis_not
+
+	WHERE siparis_id=$siparisid
+
+		");
+
+	$update = $duzenle->execute(array(
+
+	'siparis_yeniadet'=>$_POST['yeniadet'],
+	'siparis_not'=>$_POST['not']
+
+	));
+
+	if ($update) {
+	header("Location:../../siparisler.php?yuklenme=guncellendi");
+	}
+	else{
+	header("Location:../../siparisler.php?yuklenme=basarisiz");
+	}
+}
+
+
+
+
+
+
+
+
+if (isset($_POST['sipduzenle'])) {
+
+	
+
+
+
+	$siparisid=$_POST['sipid'];
+
+	$duzenle = $baglanti->prepare("UPDATE siparisler SET
+
+
+
+	urun_adet=:urun_adet
+
+	WHERE siparis_id=$siparisid
+
+		");
+
+	$update = $duzenle->execute(array(
+
+	'urun_adet'=>$_POST['adet']
+
+	));
+
+	if ($update) {
+	header("Location:../siparisler.php?yuklenme=guncellendi");
+	}
+	else{
+	header("Location:../siparisler.php?yuklenme=basarisiz");
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
  ?>

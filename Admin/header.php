@@ -43,7 +43,9 @@ $hakkimizdacek=$hakkimizda->fetch(PDO::FETCH_ASSOC);
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+  <!-- Dropzone CSS -->
   <link rel="stylesheet" type="text/css" href="dropzone.css">
+  <!-- Dropzone JS -->
   <script type="text/javascript" src="dropzone.js"></script>
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
@@ -63,6 +65,10 @@ $hakkimizdacek=$hakkimizda->fetch(PDO::FETCH_ASSOC);
   <link rel="stylesheet" href="plugins/summernote/summernote-bs4.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  
+
+
+
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
