@@ -1,8 +1,12 @@
 <?php require_once 'header.php'; ?>
 
-
+<head>
     <title>MESHA İletişim</title>
 
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+
+</head>
             <!-- Li's Breadcrumb Area End Here -->     
             <!-- Begin Contact Main Page Area -->
             <div class="contact-main-page mt-60 mb-40 mb-md-40 mb-sm-40 mb-xs-40">
@@ -53,8 +57,13 @@
                                             <textarea name="mesaj"  ></textarea>
                                         </div>
                                         <div>
-                                            
-                                            <input type="hidden" name="recaptchakodu" id="recaptchaalani">
+
+
+
+                                        <div class="g-recaptcha" data-sitekey="6LfaNTwgAAAAAIk3r-OQcZgWScnQmgkFHNzrikqi"></div>
+
+                                        <br>
+    
                                         </div>
                                         <div class="form-group">
                                             <button type="submit" value="submit" id="submit" class="li-btn-3" name="mailgonder">Gönder</button>

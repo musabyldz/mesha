@@ -27,8 +27,9 @@
                                                 <th class="cart-product-name">Başlık</th>
                                                 <th class="li-product-price">Fiyat</th>
                                                 <th class="li-product-quantity">Adet</th>
+                                                <th class="li-product-quantity">Özellik</th>
                                                 <th class="li-product-quantity">Zaman</th>
-                                                <th></th>
+                                                
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -89,6 +90,8 @@
                                                         <div class="inc qtybutton"><i class="fa fa-angle-up"></i></div>
                                                     </div>
                                                 </td>
+
+                                                <td class="li-product-name"><a href="#"><?php echo $sipariscek['urun_ozellik'] ?></a></td>
 
 
                                                 <td class="li-product-price"><span class="amount"><?php echo $sipariscek['siparis_zaman'] ?></span></td>

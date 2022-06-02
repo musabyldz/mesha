@@ -97,10 +97,31 @@
                                                     <div class="dec qtybutton"><i class="fa fa-angle-down"></i></div>
                                                     <div class="inc qtybutton"><i class="fa fa-angle-up"></i></div>
                                                 </div>
+
+
+
+
+                                                <div style="margin-left: -15px;" class="col-lg-3 col-md-6">
+                                                    <select name="ozellikler" style="margin-bottom:15px;">
+                                                        <option value="urunozellik"><?php echo $urunlercek['urun_ozellik'] ?></option>
+                                                        <option value="urunozellik2"><?php echo $urunlercek['urun_ozellik2'] ?></option>
+                                                        <option value="urunozellik3"><?php echo $urunlercek['urun_ozellik3'] ?></option>
+                                                        <option value="urunozellik4"><?php echo $urunlercek['urun_ozellik4'] ?></option>
+                                                        <option value="urunozellik5"><?php echo $urunlercek['urun_ozellik5'] ?></option>
+                                                    </select>
+                                                </div>
+
+
+
+
                                             </div>
+
                                             <input type="hidden" name="urunid" value="<?php echo $urunlercek['urun_id'] ?>">
                                             <button name="sepeteekle" class="add-to-cart" type="submit">Sepete Ekle</button>
                                         </form>
+
+
+                                        
                                     </div>
                                     <div class="product-additional-info">
                                         <div class="product-social-sharing">

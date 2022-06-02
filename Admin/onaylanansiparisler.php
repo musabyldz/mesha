@@ -6,10 +6,9 @@ require_once 'sidebar.php' ?>
 <head>
   
 
+<link rel="stylesheet" type="text/css" href="DataTables/datatables.min.css"/>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
 
-  <!-- DataTable CSS -->
-  <link rel="stylesheet" href="datatables.css">
-  
 
 </head>
 
@@ -56,31 +55,11 @@ require_once 'sidebar.php' ?>
               </div>
 
 
-
-
-
-                  <script>
-                    $(document).ready(function(){
-                    $('#example').DataTable();
-
-
-
-
-
-                      });
-                  </script>
-
-
-
-
+              
 
               <!-- /.card-header -->
               <div class="card-body table-responsive p-0">
                 <table class="table table-hover text-nowrap" id="example">
-
-                
-                  
-
 
                   <thead>
                     <tr>
@@ -163,7 +142,13 @@ require_once 'sidebar.php' ?>
   </div>
   <!-- /.content-wrapper -->
 
-  <!-- DataTable JS -->
-  <script src="datatables.js"></script>
+                <script>
+                  $(document).ready( function () {
+                  $('#example').DataTable();
+                     } );
+                </script>
+
+<script type="text/javascript" src="DataTables/datatables.min.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
   
 <?php require_once 'footer.php'; ?>

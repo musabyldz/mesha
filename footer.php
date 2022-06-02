@@ -1,3 +1,10 @@
+<head>
+    
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    
+</head>
+
+
 <div style="background-color: black;" class="footer">
                 <!-- Begin Footer Static Top Area -->
                 <div class="footer-static-top">
@@ -159,9 +166,18 @@
                                     <div class="footer-newsletter">
                                         <h4 class="beyazyazi">E-Bültene Abone Ol</h4>
                                         <form action="islem" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="footer-subscribe-form validate" target="_blank" novalidate>
+
+
+                                        <div class="g-recaptcha" data-sitekey="6LfaNTwgAAAAAIk3r-OQcZgWScnQmgkFHNzrikqi"></div>
+                                        <br>
+                                        
+
+
+
                                            <div id="mc_embed_signup_scroll">
+
                                               <div id="mc-form" class="mc-form subscribe-form form-group" >
-                                                <input  type="email" name="abone" placeholder="Emailinizi giriniz" />
+                                                <input  style="color:white;" type="email" name="abone" placeholder="Emailinizi giriniz" />
                                                 <button name="aboneol" class="btn" id="mc-submit">Abone Ol</button>
                                               </div>
                                            </div>

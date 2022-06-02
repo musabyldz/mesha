@@ -27,6 +27,7 @@
                                                 <th class="cart-product-name">Başlık</th>
                                                 <th class="li-product-price">Fiyat</th>
                                                 <th class="li-product-quantity">Adet</th>
+                                                <th class="li-product-quantity">Özellik</th>
                                                 <th class="li-product-subtotal">Toplam Fiyat</th>
                                             </tr>
                                         </thead>
@@ -74,6 +75,7 @@
                                                         <div class="inc qtybutton"><i class="fa fa-angle-up"></i></div>
                                                     </div>
                                                 </td>
+                                                <td class="li-product-price"><span class="amount"><?php echo $sipariscek['urun_ozellik'] ?></span></td>
                                                 <td class="product-subtotal"><span class="amount"><?php echo $value * $urunlercek['urun_fiyat'] ?></span>₺</td>
                                             </tr>
 

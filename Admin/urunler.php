@@ -47,6 +47,7 @@ require_once 'sidebar.php' ?>
                       <th>Ürün Renk</th>
                       <th>Ürün Durum</th>
                       <th>Ürün Sıra</th>
+                      <th>Ürün Özellik</th>
                       <th>Ürün Adet Sayısı</th>
                       <th>Düzenle</th>
                       <th>Sil</th>
@@ -74,6 +75,7 @@ require_once 'sidebar.php' ?>
                       <td><?php echo $urunlercek['urun_renk'] ?></td>
                       <td><?php echo $urunlercek['urun_durum'] ?></td>
                       <td><?php echo $urunlercek['urun_sira'] ?></td>
+                      <td><?php echo $urunlercek['urun_ozellik'] ?></td>
                       <td><?php echo $urunlercek['urun_adet'] ?></td>
 
                       <td><a href="urunler-duzenle?id=<?php echo $urunlercek['urun_id'] ?>&katid=<?php echo $urunlercek['kategori_id'] ?>"><button type="submit" class="btn btn-info">Düzenle</button></a></td>
